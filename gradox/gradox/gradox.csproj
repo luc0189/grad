@@ -71,6 +71,7 @@
     <Content Include="Login.aspx" />
     <Content Include="vista\Appmesas.aspx" />
     <Content Include="vista\Menuadmon.aspx" />
+    <Content Include="vista\Salir.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="vista\Menuadmon.aspx.designer.cs">
       <DependentUpon>Menuadmon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Salir.aspx.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Salir.aspx.designer.cs">
+      <DependentUpon>Salir.aspx</DependentUpon>
     </Compile>
     <Compile Include="vista\vista.Master.cs">
       <DependentUpon>vista.Master</DependentUpon>
