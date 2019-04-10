@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,13 +68,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Login.aspx" />
+    <Content Include="vista\Appmesas.aspx" />
+    <Content Include="vista\Menuadmon.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conexion\Bdconexion.cs" />
+    <Compile Include="conexion\parametro.cs" />
+    <Compile Include="Controlador\Ccontrola.cs" />
+    <Compile Include="Controlador\EXPCONTROLADA.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modelo\Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vista\Appmesas.aspx.cs">
+      <DependentUpon>Appmesas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Appmesas.aspx.designer.cs">
+      <DependentUpon>Appmesas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\menu.Master.cs">
+      <DependentUpon>menu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\menu.Master.designer.cs">
+      <DependentUpon>menu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Menuadmon.aspx.cs">
+      <DependentUpon>Menuadmon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Menuadmon.aspx.designer.cs">
+      <DependentUpon>Menuadmon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\vista.Master.cs">
+      <DependentUpon>vista.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\vista.Master.designer.cs">
+      <DependentUpon>vista.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="vista\menu.Master" />
+    <Content Include="vista\vista.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,6 +127,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
