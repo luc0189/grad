@@ -70,8 +70,16 @@
   <ItemGroup>
     <Content Include="Login.aspx" />
     <Content Include="vista\Appmesas.aspx" />
+    <Content Include="vista\appmovil.aspx" />
+    <Content Include="vista\Empresa.aspx" />
+    <Content Include="vista\Impuestos.aspx" />
     <Content Include="vista\Menuadmon.aspx" />
+    <Content Include="vista\Mesas.aspx" />
+    <Content Include="vista\Personas.aspx" />
+    <Content Include="vista\Productos.aspx" />
+    <Content Include="vista\Roles.aspx" />
     <Content Include="vista\Salir.aspx" />
+    <Content Include="vista\TipS_Doc.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +103,27 @@
     <Compile Include="vista\Appmesas.aspx.designer.cs">
       <DependentUpon>Appmesas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vista\appmovil.aspx.cs">
+      <DependentUpon>appmovil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\appmovil.aspx.designer.cs">
+      <DependentUpon>appmovil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Empresa.aspx.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Empresa.aspx.designer.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Impuestos.aspx.cs">
+      <DependentUpon>Impuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Impuestos.aspx.designer.cs">
+      <DependentUpon>Impuestos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vista\menu.Master.cs">
       <DependentUpon>menu.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,12 +138,47 @@
     <Compile Include="vista\Menuadmon.aspx.designer.cs">
       <DependentUpon>Menuadmon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vista\Mesas.aspx.cs">
+      <DependentUpon>Mesas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Mesas.aspx.designer.cs">
+      <DependentUpon>Mesas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vista\Salir.aspx.cs">
       <DependentUpon>Salir.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="vista\Salir.aspx.designer.cs">
       <DependentUpon>Salir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\TipS_Doc.aspx.cs">
+      <DependentUpon>TipS_Doc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\TipS_Doc.aspx.designer.cs">
+      <DependentUpon>TipS_Doc.aspx</DependentUpon>
     </Compile>
     <Compile Include="vista\vista.Master.cs">
       <DependentUpon>vista.Master</DependentUpon>

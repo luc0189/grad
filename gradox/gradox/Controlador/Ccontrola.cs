@@ -1,4 +1,5 @@
-﻿using gradox.modelo;
+﻿using gradox.conexion;
+using gradox.modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,6 +10,9 @@ namespace gradox.Controlador
 {
     public class Ccontrola
     {
+        Bdconexion con = new Bdconexion();
+        Bdconexion dataload = new Bdconexion();
+        String sql = String.Empty;
         Modelo sb = new Modelo();
         internal DataTable Cconsusuario(string usua, string PS, string bd)
         {
@@ -168,6 +172,18 @@ namespace gradox.Controlador
                 throw e;
             }
         }
+        internal DataTable ClistaNoUser(string pbd)
+        {
+            try
+            {
+                return sb.MlistaNoUser(pbd);
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
         internal DataTable ClistaClasif_doc(string pbd)
         {
             try
@@ -231,45 +247,6 @@ namespace gradox.Controlador
                 throw e;
             }
         }
-        internal DataTable CBuscaMesalibre(string pidmesa, string pbd)
-        {
-            //string tipodoc = "%" + ptipodoc + "%";
-            try
-            {
-                return sb.MbuscaMesalibre(pidmesa, pbd);
-            }
-            catch (Exception e)
-
-            {
-                throw e;
-            }
-        }
-        internal DataTable Cpedirmesa(string pidmesa, string pbd)
-        {
-
-            try
-            {
-                return sb.MlistaPEDIDOMESA(pidmesa, pbd);
-            }
-            catch (Exception e)
-
-            {
-                throw e;
-            }
-        }
-        internal DataTable Cpedido(string pidmesa, string pbd)
-        {
-
-            try
-            {
-                return sb.Mcreapedido(pidmesa, pbd);
-            }
-            catch (Exception e)
-
-            {
-                throw e;
-            }
-        }
         internal DataTable CBuscaPresentacionParametro(string particulo, string pbd)
         {
 
@@ -296,7 +273,32 @@ namespace gradox.Controlador
                 throw e;
             }
         }
+        internal DataTable CBuscaMesalibre(string pidmesa, string pbd)
+        {
+            //string tipodoc = "%" + ptipodoc + "%";
+            try
+            {
+                return sb.MbuscaMesalibre(pidmesa, pbd);
+            }
+            catch (Exception e)
 
+            {
+                throw e;
+            }
+        }
+        internal DataTable Cpedido(string pidmesa, string pbd)
+        {
+
+            try
+            {
+                return sb.Mcreapedido(pidmesa, pbd);
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
         internal DataTable CListaIdpedio(string pidMESA, string pbd)
         {
 
@@ -347,18 +349,6 @@ namespace gradox.Controlador
                 throw e;
             }
         }
-        internal DataTable CupdMesa(string pid, string pnombre, string ppuestos, string pbd)
-        {
-
-            try
-            {
-                return sb.MupdMesa(pid, pnombre, ppuestos, pbd);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
         internal DataTable CDELRol(string pid, string pbd)
         {
 
@@ -377,18 +367,6 @@ namespace gradox.Controlador
             try
             {
                 return sb.McreaRol(pnombre, pbd);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-        internal DataTable CcreaCatego(string pnombre, string pbd)
-        {
-
-            try
-            {
-                return sb.McreaCategoria(pnombre, pbd);
             }
             catch (Exception e)
             {
@@ -454,18 +432,6 @@ namespace gradox.Controlador
             }
             catch (Exception e)
             {
-                throw e;
-            }
-        }
-        internal DataTable cCancelaOrden(string pidpedido, string pidmesa, string pbd)
-        {
-            try
-            {
-                return sb.MCancelapedido(pidpedido, pidmesa, pbd);
-            }
-            catch (Exception e)
-            {
-
                 throw e;
             }
         }
@@ -544,14 +510,40 @@ namespace gradox.Controlador
                 throw e;
             }
         }
-        internal DataTable CcreaPresentProduct(string pnombre, string descrip, string pUbicacion,
-            string precio, string estado, string complejidad, string idproducto,
-            string unidadMedida, string Marca, string pbd)
+       internal DataTable McreaPresentacionProducto(String pnombre, String pdescrip, String pUbicacion,
+           String pprecio, String pcantidad, String pestado, String pcomplejidad, String pproductoid,
+            String punidadmedida, String pmarca, String bd)
         {
             try
             {
-                return sb.McreaPresentacionProducto(pnombre, descrip, pUbicacion, precio
-                    , estado, complejidad, idproducto, unidadMedida, Marca, pbd);
+                List<parametro> Runnombre = new List<parametro>();
+                Runnombre.Add(new parametro("VALIDAREGISTRO", "", "CURSOR", ParameterDirection.Output));
+                Runnombre.Add(new parametro("V_Nombre", pnombre, "VARCHAR2", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Descripcion", pdescrip, "VARCHAR2", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Ubicacion", pUbicacion, "VARCHAR2", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Precio", pprecio, "NUMBER", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Cantidad", pcantidad, "NUMBER", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Estado", pestado, "NUMBER", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Complejidad", pcomplejidad, "NUMBER", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Producto_Id", pproductoid, "NUMBER", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_UnidadMedida_Id", punidadmedida, "VARCHAR2", ParameterDirection.Input));
+                Runnombre.Add(new parametro("V_Marca_Id", pmarca, "VARCHAR2", ParameterDirection.Input));
+                return con.ProcedureSelectDB(bd + ".PRPRESENTACION_INSERTAR", Runnombre, bd);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        internal DataTable CcreaPresentProduct(string pnombre, string descrip, string pUbicacion,
+          string precio, string cant, string estado, string complejidad, string idproducto,
+          string unidadMedida, string Marca, string pbd)
+        {
+            try
+            {
+                return sb.McreaPresentacionProducto(pnombre, descrip, pUbicacion, precio, cant
+                    , estado, complejidad, idproducto, unidadMedida, Marca,pbd);
             }
             catch (Exception e)
             {

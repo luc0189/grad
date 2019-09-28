@@ -91,7 +91,7 @@ namespace gradox.vista
 
                 EXPCONTROLADA.MessageBox(this, exp.Message);
             }
-            Response.Redirect("WebForm1.aspx");
+            Response.Redirect("appmovil.aspx");
 
         }
         public string traenumeropedido(string mesa)

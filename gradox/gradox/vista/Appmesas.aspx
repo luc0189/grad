@@ -71,7 +71,7 @@
               txt = document.getElementById;
               <%Session["pid"] = "1";%>
           } else {
-             window.location("WebForm1.aspx");
+             window.location("Appmesas.aspx");
              }
         //return confirm("Confirme el postback");
           //javascript: window.open("WebForm1.aspx");

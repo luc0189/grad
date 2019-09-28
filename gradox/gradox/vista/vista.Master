@@ -26,7 +26,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="wrapper">
+   <div class="wrapper">
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -42,7 +42,7 @@
                     <a href="Cocina.aspx" class="nav-link">Produccion</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="atencion_mesas.aspx" class="nav-link">Salon y Mesas</a>
+                    <a href="Appmesas.aspx" class="nav-link">Salon y Mesas</a>
                 </li>
             </ul>
 
@@ -338,6 +338,7 @@
                 <%--AQUI ESTA LOS MENUS--%>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            
             </section>
             <!-- /.content -->
         </div>
@@ -535,5 +536,6 @@
 
 
     </script>
+
 </body>
 </html>

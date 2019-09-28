@@ -86,7 +86,20 @@ namespace gradox.modelo
                 throw ex;
             }
         }
+        internal DataTable MlistaNoUser(String bd)
+        {
+            try
+            {
+                List<parametro> RunLista = new List<parametro>();
+                RunLista.Add(new parametro("CONSULTA", "", "CURSOR", ParameterDirection.ReturnValue));
+                return con.ProcedureSelectDB(bd + ".FN_CONS_NO_USER", RunLista, bd);
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
         internal DataTable MlistaMarca(String bd)
         {
             try
@@ -726,7 +739,7 @@ namespace gradox.modelo
             }
         }
         internal DataTable McreaPresentacionProducto(String pnombre, String pdescrip, String pUbicacion,
-            String pprecio, String pestado, String pcomplejidad, String pproductoid,
+            String pprecio, String pcantidad, String pestado, String pcomplejidad, String pproductoid,
              String punidadmedida, String pmarca, String bd)
         {
             try
@@ -737,7 +750,7 @@ namespace gradox.modelo
                 Runnombre.Add(new parametro("V_Descripcion", pdescrip, "VARCHAR2", ParameterDirection.Input));
                 Runnombre.Add(new parametro("V_Ubicacion", pUbicacion, "VARCHAR2", ParameterDirection.Input));
                 Runnombre.Add(new parametro("V_Precio", pprecio, "NUMBER", ParameterDirection.Input));
-
+                Runnombre.Add(new parametro("V_Cantidad", pcantidad, "NUMBER", ParameterDirection.Input));
                 Runnombre.Add(new parametro("V_Estado", pestado, "NUMBER", ParameterDirection.Input));
                 Runnombre.Add(new parametro("V_Complejidad", pcomplejidad, "NUMBER", ParameterDirection.Input));
                 Runnombre.Add(new parametro("V_Producto_Id", pproductoid, "NUMBER", ParameterDirection.Input));
